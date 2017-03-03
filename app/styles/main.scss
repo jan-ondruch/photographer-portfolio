@@ -1,4 +1,21 @@
 body {
+	font-family: 'Open Sans Condensed', sans-serif;
 	margin: 0;
 	padding: 0;
+	color: #161616;
+	text-align: center;
+}
+
+a {
+	color: #161616;
+	text-decoration: none;
+}
+
+.intro-text {
+	position: absolute;
+  left: 50%;
+  top: 40%;
+	transform: translate(-50%, -50%);
+	width: 300px;
+	border: 1px solid #161616;
 }

@@ -7,6 +7,7 @@ const wiredep = require('wiredep').stream;
 const runSequence = require('run-sequence');
 const concat = require('gulp-concat');
 const merge = require('merge-stream');
+const autoprefixer = require('gulp-autoprefixer');
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -15,7 +16,22 @@ var dev = true;
 
 gulp.task('styles', () => {
 
-  var sassStream,
+  return gulp.src('app/styles/*.scss')
+    .pipe($.plumber())
+    .pipe($.if(dev, $.sourcemaps.init()))
+    .pipe($.sass.sync({
+      outputStyle: 'expanded',
+      precision: 10,
+      includePaths: ['.']
+    }).on('error', $.sass.logError))
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions']
+    }))
+    .pipe($.if(dev, $.sourcemaps.write()))
+    .pipe(gulp.dest('.tmp/styles'))
+    .pipe(reload({stream: true}));
+
+  /*var sassStream,
       cssStream;
 
   sassStream = gulp.src('app/styles/*.scss')
@@ -33,8 +49,11 @@ gulp.task('styles', () => {
 
   return merge(sassStream, cssStream)
     .pipe(concat('main.css'))
+    .pipe(autoprefixer({
+      browsers: ['last 2 versions']
+    }))
     .pipe(gulp.dest('.tmp/styles'))
-    .pipe(reload({stream: true}));
+    .pipe(reload({stream: true}));*/
 });
 
 gulp.task('scripts', () => {
@@ -42,6 +61,7 @@ gulp.task('scripts', () => {
     .pipe($.plumber())
     .pipe($.if(dev, $.sourcemaps.init()))
     .pipe($.babel())
+    //.pipe(concat('main.js'))
     .pipe($.if(dev, $.sourcemaps.write('.')))
     .pipe(gulp.dest('.tmp/scripts'))
     .pipe(reload({stream: true}));
@@ -119,6 +139,7 @@ gulp.task('serve', () => {
     });
 
     gulp.watch([
+      'app/styles/**/*',
       'app/*.html',
       'app/images/**/*',
       '.tmp/fonts/**/*'

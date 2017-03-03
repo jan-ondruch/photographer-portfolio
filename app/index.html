@@ -8,8 +8,17 @@
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
+    <link rel="stylesheet" href="styles/animate.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/main.css">
     <script src="/bower_components/modernizr/modernizr.js"></script>
+
+    <!-- Concat for dist -->
+    <script src="scripts/responsive-nav.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet"> 
+
   </head>
   <body>
     <!--[if IE]>
@@ -17,10 +26,25 @@
     <![endif]-->
     
     <div>
+
+      <div class="intro-text">
+        <h1>NATURE AROUND US</h1>
+        <h2>fotograf David Dukát</h2>
+      </div>
+
       
-      <header class="header">
+      <header>
         <a href="#" class="logo">PIXPHO</a>
+        <nav class="nav-collapse">
+          <ul>
+            <li class="menu-item"><a href="#services" data-scroll>Příroda</a></li>
+            <li class="menu-item"><a href="#produkte" data-scroll>Lidé</a></li>
+            <li class="menu-item"><a href="#kontakt" data-scroll>Ostatní</a></li>
+            <li class="menu-item"><a href="#about" data-scroll>O mně</a></li>
+          </ul>
+        </nav>
       </header>
+
 
     </div>
     
@@ -36,6 +60,12 @@
 
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/modernizr/modernizr.js"></script>
+
+    <!-- concat for dist -->
+    <script src="scripts/fastclick.js"></script>
+    <script src="scripts/scroll.js"></script>
+    <script src="scripts/fixed-responsive-nav.js"></script>
+
     <script src="scripts/main.js"></script>
   </body>
 </html>

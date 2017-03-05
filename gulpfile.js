@@ -24,9 +24,7 @@ gulp.task('styles', () => {
       precision: 10,
       includePaths: ['.']
     }).on('error', $.sass.logError))
-    .pipe(autoprefixer({
-      browsers: ['last 2 versions']
-    }))
+    .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
     .pipe($.if(dev, $.sourcemaps.write()))
     .pipe(gulp.dest('.tmp/styles'))
     .pipe(reload({stream: true}));
@@ -123,10 +121,15 @@ gulp.task('extras', () => {
   }).pipe(gulp.dest('dist'));
 });
 
+gulp.task('copy-html', () => {
+  return gulp.src('app/*.html')
+    .pipe(gulp.dest('.tmp'));
+});
+
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 gulp.task('serve', () => {
-  runSequence(['clean', 'wiredep'], ['styles', 'scripts', 'fonts'], () => {
+  runSequence(['clean', 'wiredep'], ['styles', 'scripts', 'fonts', 'copy-html'], () => {
     browserSync.init({
       notify: false,
       port: 9000,
@@ -141,12 +144,14 @@ gulp.task('serve', () => {
     gulp.watch([
       'app/styles/**/*',
       'app/*.html',
+      'app/scripts/**/*',
       'app/images/**/*',
-      '.tmp/fonts/**/*'
+      '.tmp/fonts/**/*',
     ]).on('change', reload);
 
     gulp.watch('app/styles/**/*.scss', ['styles']);
     gulp.watch('app/scripts/**/*.js', ['scripts']);
+    gulp.watch('app/*.html', ['copy-html']);
     gulp.watch('app/fonts/**/*', ['fonts']);
     gulp.watch('bower.json', ['wiredep', 'fonts']);
   });

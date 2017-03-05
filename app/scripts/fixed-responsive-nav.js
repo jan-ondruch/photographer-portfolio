@@ -12,10 +12,10 @@
 
 (function () {
 
-  "use strict";
+  'use strict';
 
   // Feature test to rule out some older browsers
-  if ("querySelector" in document && "addEventListener" in window) {
+  if ('querySelector' in document && 'addEventListener' in window) {
 
     // forEach method, that passes back the stuff we need
     var forEach = function (array, callback, scope) {
@@ -31,27 +31,27 @@
     smoothScroll.init();
 
     // Init Responsive Nav
-    var navigation = responsiveNav(".nav-collapse", {
+    var navigation = responsiveNav('.nav-collapse', {
 
       // Close the navigation when it's tapped
       closeOnNavClick: true
     });
 
     // Create a Mask
-    var mask = document.createElement("div");
-    mask.className = "mask";
+    var mask = document.createElement('div');
+    mask.className = 'mask';
 
     // Append the mask inside <body>
     document.body.appendChild(mask);
 
     // Disable mask transitions on Android to boost performance
     if (navigator.userAgent.match(/Android/i) !== null) {
-      document.documentElement.className += " android";
+      document.documentElement.className += ' android';
     }
 
     // Find navigation links and save a reference to them
-    var nav = document.querySelector(".nav-collapse ul"),
-      links = nav.querySelectorAll("a");
+    var nav = document.querySelector('.nav-collapse ul'),
+      links = nav.querySelectorAll('a');
 
     // "content" will store all the location cordinates
     var content;
@@ -60,7 +60,7 @@
     var setupLocations = function () {
       content = [];
       forEach(links, function (i, el) {
-        var href = links[i].getAttribute("href").replace("#", "");
+        var href = links[i].getAttribute('href').replace('#', '');
         content.push(document.getElementById(href).offsetTop + 200);
       });
     };
@@ -69,21 +69,21 @@
     setupLocations();
 
     // Re-calculate locations on window resize and orientation change
-    window.addEventListener("resize", function () {
+    window.addEventListener('resize', function () {
       setupLocations();
     }, false);
 
     // Highlight active link on the navigation
     var selectActiveMenuItem = function (i) {
       forEach(links, function (i, el) {
-        links[i].parentNode.className = links[i].parentNode.className.replace(/[\s]{0,}active/, "");
+        links[i].parentNode.className = links[i].parentNode.className.replace(/[\s]{0,}active/, '');
       });
-      links[i].parentNode.className += links[i].parentNode.className ? " active" : "active";
+      links[i].parentNode.className += links[i].parentNode.className ? ' active' : 'active';
     };
 
     // Highlight active link when scrolling
     var wasNavigationTapped = false;
-    window.addEventListener("scroll", function () {
+    window.addEventListener('scroll', function () {
 
       // Determine viewport and body size
       var top = window.pageYOffset,
@@ -109,7 +109,7 @@
     }, false);
 
     // Close navigation when tapping the mask under it
-    mask.addEventListener("click", function (e) {
+    mask.addEventListener('click', function (e) {
       e.preventDefault();
       navigation.close();
     }, false);
@@ -122,7 +122,7 @@
     };
 
     // Select the right navigation item when tapping the logo
-    document.querySelector(".logo").addEventListener("click", function (e) {
+    document.querySelector('.logo').addEventListener('click', function (e) {
       e.preventDefault();
       wasNavigationTapped = true;
 
@@ -134,7 +134,7 @@
 
       // Remove hash from the URL if pushState is supported
       if (history.pushState) {
-        history.pushState("", document.title, window.location.pathname);
+        history.pushState('', document.title, window.location.pathname);
       }
 
       // Clear wasNavigationTapped check
@@ -143,7 +143,7 @@
 
     // When a navigation item is tapped, select it and begin scrolling
     forEach(links, function (i, el) {
-      links[i].addEventListener("click", function (e) {
+      links[i].addEventListener('click', function (e) {
         e.preventDefault();
         wasNavigationTapped = true;
 
@@ -151,19 +151,19 @@
         selectActiveMenuItem(i);
 
         // Show the URL of the section on the address bar
-        var thisID = this.getAttribute("href").replace("#", ""),
+        var thisID = this.getAttribute('href').replace('#', ''),
           pane = document.getElementById(thisID);
 
         // If the URL isn't "#home", change it
-        if (thisID !== "home") {
-          pane.removeAttribute("id");
-          location.hash = "#" + thisID;
-          pane.setAttribute("id", thisID);
+        if (thisID !== 'home') {
+          pane.removeAttribute('id');
+          location.hash = '#' + thisID;
+          pane.setAttribute('id', thisID);
 
         // If the URL is "#home", remove hash from the URL
         } else {
           if (history.pushState) {
-            history.pushState("", document.title, window.location.pathname);
+            history.pushState('', document.title, window.location.pathname);
           }
         }
 

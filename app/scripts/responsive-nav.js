@@ -10,7 +10,7 @@
 (function (document, window, index) {
   // Index is used to keep multiple navs on the same page namespaced
 
-  "use strict";
+  'use strict';
 
   var responsiveNav = function (el, options) {
 
@@ -24,8 +24,8 @@
         this.el = el;
         this.getPropertyValue = function(prop) {
           var re = /(\-([a-z]){1})/g;
-          if (prop === "float") {
-            prop = "styleFloat";
+          if (prop === 'float') {
+            prop = 'styleFloat';
           }
           if (re.test(prop)) {
             prop = prop.replace(re, function () {
@@ -50,12 +50,12 @@
      * @param  {boolean}  bubbling
      */
     var addEvent = function (el, evt, fn, bubble) {
-        if ("addEventListener" in el) {
+        if ('addEventListener' in el) {
           // BBOS6 doesn't support handleEvent, catch and polyfill
           try {
             el.addEventListener(evt, fn, bubble);
           } catch (e) {
-            if (typeof fn === "object" && fn.handleEvent) {
+            if (typeof fn === 'object' && fn.handleEvent) {
               el.addEventListener(evt, function (e) {
                 // Bind fn as this and set first arg as event object
                 fn.handleEvent.call(fn, e);
@@ -64,15 +64,15 @@
               throw e;
             }
           }
-        } else if ("attachEvent" in el) {
+        } else if ('attachEvent' in el) {
           // check if the callback is an object and contains handleEvent
-          if (typeof fn === "object" && fn.handleEvent) {
-            el.attachEvent("on" + evt, function () {
+          if (typeof fn === 'object' && fn.handleEvent) {
+            el.attachEvent('on' + evt, function () {
               // Bind fn as this
               fn.handleEvent.call(fn);
             });
           } else {
-            el.attachEvent("on" + evt, fn);
+            el.attachEvent('on' + evt, fn);
           }
         }
       },
@@ -86,11 +86,11 @@
        * @param  {boolean}  bubbling
        */
       removeEvent = function (el, evt, fn, bubble) {
-        if ("removeEventListener" in el) {
+        if ('removeEventListener' in el) {
           try {
             el.removeEventListener(evt, fn, bubble);
           } catch (e) {
-            if (typeof fn === "object" && fn.handleEvent) {
+            if (typeof fn === 'object' && fn.handleEvent) {
               el.removeEventListener(evt, function (e) {
                 fn.handleEvent.call(fn, e);
               }, bubble);
@@ -98,13 +98,13 @@
               throw e;
             }
           }
-        } else if ("detachEvent" in el) {
-          if (typeof fn === "object" && fn.handleEvent) {
-            el.detachEvent("on" + evt, function () {
+        } else if ('detachEvent' in el) {
+          if (typeof fn === 'object' && fn.handleEvent) {
+            el.detachEvent('on' + evt, function () {
               fn.handleEvent.call(fn);
             });
           } else {
-            el.detachEvent("on" + evt, fn);
+            el.detachEvent('on' + evt, fn);
           }
         }
       },
@@ -117,7 +117,7 @@
        */
       getChildren = function (e) {
         if (e.children.length < 1) {
-          throw new Error("The Nav container has no containing elements");
+          throw new Error('The Nav container has no containing elements');
         }
         // Store all children in array
         var children = [];
@@ -150,8 +150,8 @@
        */
       addClass = function (el, cls) {
         if (el.className.indexOf(cls) !== 0) {
-          el.className += " " + cls;
-          el.className = el.className.replace(/(^\s*)|(\s*$)/g,"");
+          el.className += ' ' + cls;
+          el.className = el.className.replace(/(^\s*)|(\s*$)/g,'');
         }
       },
 
@@ -162,8 +162,8 @@
        * @param  {string}  class
        */
       removeClass = function (el, cls) {
-        var reg = new RegExp("(\\s|^)" + cls + "(\\s|$)");
-        el.className = el.className.replace(reg, " ").replace(/(^\s*)|(\s*$)/g,"");
+        var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+        el.className = el.className.replace(reg, ' ').replace(/(^\s*)|(\s*$)/g,'');
       },
 
       /**
@@ -182,7 +182,7 @@
     var nav,
       opts,
       navToggle,
-      styleElement = document.createElement("style"),
+      styleElement = document.createElement('style'),
       htmlEl = document.documentElement,
       hasAnimFinished,
       isMobile,
@@ -198,14 +198,14 @@
         this.options = {
           animate: true,                    // Boolean: Use CSS3 transitions, true or false
           transition: 284,                  // Integer: Speed of the transition, in milliseconds
-          label: "Menu",                    // String: Label for the navigation toggle
-          insert: "before",                 // String: Insert the toggle before or after the navigation
-          customToggle: "",                 // Selector: Specify the ID of a custom toggle
+          label: 'Menu',                    // String: Label for the navigation toggle
+          insert: 'before',                 // String: Insert the toggle before or after the navigation
+          customToggle: '',                 // Selector: Specify the ID of a custom toggle
           closeOnNavClick: false,           // Boolean: Close the navigation when one of the links are clicked
-          openPos: "relative",              // String: Position of the opened nav, relative or static
-          navClass: "nav-collapse",         // String: Default CSS class. If changed, you need to edit the CSS too!
-          navActiveClass: "js-nav-active",  // String: Class that is added to <html> element when nav is active
-          jsClass: "js",                    // String: 'JS enabled' class which is added to <html> element
+          openPos: 'relative',              // String: Position of the opened nav, relative or static
+          navClass: 'nav-collapse',         // String: Default CSS class. If changed, you need to edit the CSS too!
+          navActiveClass: 'js-nav-active',  // String: Class that is added to <html> element when nav is active
+          jsClass: 'js',                    // String: 'JS enabled' class which is added to <html> element
           init: function(){},               // Function: Init callback
           open: function(){},               // Function: Open callback
           close: function(){}               // Function: Close callback
@@ -220,7 +220,7 @@
         addClass(htmlEl, this.options.jsClass);
 
         // Wrapper
-        this.wrapperEl = el.replace("#", "");
+        this.wrapperEl = el.replace('#', '');
 
         // Try selecting ID first
         if (document.getElementById(this.wrapperEl)) {
@@ -232,7 +232,7 @@
 
         // If element doesn't exists, stop here.
         } else {
-          throw new Error("The nav element you are trying to select doesn't exist");
+          throw new Error('The nav element you are trying to select doesn\'t exist');
         }
 
         // Inner wrapper
@@ -253,27 +253,27 @@
        */
       destroy: function () {
         this._removeStyles();
-        removeClass(nav, "closed");
-        removeClass(nav, "opened");
+        removeClass(nav, 'closed');
+        removeClass(nav, 'opened');
         removeClass(nav, opts.navClass);
-        removeClass(nav, opts.navClass + "-" + this.index);
+        removeClass(nav, opts.navClass + '-' + this.index);
         removeClass(htmlEl, opts.navActiveClass);
-        nav.removeAttribute("style");
-        nav.removeAttribute("aria-hidden");
+        nav.removeAttribute('style');
+        nav.removeAttribute('aria-hidden');
 
-        removeEvent(window, "resize", this, false);
-        removeEvent(window, "focus", this, false);
-        removeEvent(document.body, "touchmove", this, false);
-        removeEvent(navToggle, "touchstart", this, false);
-        removeEvent(navToggle, "touchend", this, false);
-        removeEvent(navToggle, "mouseup", this, false);
-        removeEvent(navToggle, "keyup", this, false);
-        removeEvent(navToggle, "click", this, false);
+        removeEvent(window, 'resize', this, false);
+        removeEvent(window, 'focus', this, false);
+        removeEvent(document.body, 'touchmove', this, false);
+        removeEvent(navToggle, 'touchstart', this, false);
+        removeEvent(navToggle, 'touchend', this, false);
+        removeEvent(navToggle, 'mouseup', this, false);
+        removeEvent(navToggle, 'keyup', this, false);
+        removeEvent(navToggle, 'click', this, false);
 
         if (!opts.customToggle) {
           navToggle.parentNode.removeChild(navToggle);
         } else {
-          navToggle.removeAttribute("aria-hidden");
+          navToggle.removeAttribute('aria-hidden');
         }
       },
 
@@ -295,12 +295,12 @@
        */
       open: function () {
         if (!navOpen) {
-          removeClass(nav, "closed");
-          addClass(nav, "opened");
+          removeClass(nav, 'closed');
+          addClass(nav, 'opened');
           addClass(htmlEl, opts.navActiveClass);
-          addClass(navToggle, "active");
+          addClass(navToggle, 'active');
           nav.style.position = opts.openPos;
-          setAttributes(nav, {"aria-hidden": "false"});
+          setAttributes(nav, {'aria-hidden': 'false'});
           navOpen = true;
           opts.open();
         }
@@ -311,23 +311,23 @@
        */
       close: function () {
         if (navOpen) {
-          addClass(nav, "closed");
-          removeClass(nav, "opened");
+          addClass(nav, 'closed');
+          removeClass(nav, 'opened');
           removeClass(htmlEl, opts.navActiveClass);
-          removeClass(navToggle, "active");
-          setAttributes(nav, {"aria-hidden": "true"});
+          removeClass(navToggle, 'active');
+          setAttributes(nav, {'aria-hidden': 'true'});
 
           // If animations are enabled, wait until they finish
           if (opts.animate) {
             hasAnimFinished = false;
             setTimeout(function () {
-              nav.style.position = "absolute";
+              nav.style.position = 'absolute';
               hasAnimFinished = true;
             }, opts.transition + 10);
 
           // Animations aren't enabled, we can do these immediately
           } else {
-            nav.style.position = "absolute";
+            nav.style.position = 'absolute';
           }
 
           navOpen = false;
@@ -342,15 +342,15 @@
       resize: function () {
 
         // Resize watches navigation toggle's display state
-        if (window.getComputedStyle(navToggle, null).getPropertyValue("display") !== "none") {
+        if (window.getComputedStyle(navToggle, null).getPropertyValue('display') !== 'none') {
 
           isMobile = true;
-          setAttributes(navToggle, {"aria-hidden": "false"});
+          setAttributes(navToggle, {'aria-hidden': 'false'});
 
           // If the navigation is hidden
           if (nav.className.match(/(^|\s)closed(\s|$)/)) {
-            setAttributes(nav, {"aria-hidden": "true"});
-            nav.style.position = "absolute";
+            setAttributes(nav, {'aria-hidden': 'true'});
+            nav.style.position = 'absolute';
           }
 
           this._createStyles();
@@ -358,8 +358,8 @@
         } else {
 
           isMobile = false;
-          setAttributes(navToggle, {"aria-hidden": "true"});
-          setAttributes(nav, {"aria-hidden": "false"});
+          setAttributes(navToggle, {'aria-hidden': 'true'});
+          setAttributes(nav, {'aria-hidden': 'false'});
           nav.style.position = opts.openPos;
           this._removeStyles();
         }
@@ -375,24 +375,24 @@
         var evt = e || window.event;
 
         switch (evt.type) {
-        case "touchstart":
+        case 'touchstart':
           this._onTouchStart(evt);
           break;
-        case "touchmove":
+        case 'touchmove':
           this._onTouchMove(evt);
           break;
-        case "touchend":
-        case "mouseup":
+        case 'touchend':
+        case 'mouseup':
           this._onTouchEnd(evt);
           break;
-        case "click":
+        case 'click':
           this._preventDefault(evt);
           break;
-        case "keyup":
+        case 'keyup':
           this._onKeyUp(evt);
           break;
-        case "focus":
-        case "resize":
+        case 'focus':
+        case 'resize':
           this.resize(evt);
           break;
         }
@@ -405,8 +405,8 @@
         this.index = index++;
 
         addClass(nav, opts.navClass);
-        addClass(nav, opts.navClass + "-" + this.index);
-        addClass(nav, "closed");
+        addClass(nav, opts.navClass + '-' + this.index);
+        addClass(nav, 'closed');
         hasAnimFinished = true;
         navOpen = false;
 
@@ -425,14 +425,14 @@
           self.resize();
         }, 20);
 
-        addEvent(window, "resize", this, false);
-        addEvent(window, "focus", this, false);
-        addEvent(document.body, "touchmove", this, false);
-        addEvent(navToggle, "touchstart", this, false);
-        addEvent(navToggle, "touchend", this, false);
-        addEvent(navToggle, "mouseup", this, false);
-        addEvent(navToggle, "keyup", this, false);
-        addEvent(navToggle, "click", this, false);
+        addEvent(window, 'resize', this, false);
+        addEvent(window, 'focus', this, false);
+        addEvent(document.body, 'touchmove', this, false);
+        addEvent(navToggle, 'touchstart', this, false);
+        addEvent(navToggle, 'touchend', this, false);
+        addEvent(navToggle, 'mouseup', this, false);
+        addEvent(navToggle, 'keyup', this, false);
+        addEvent(navToggle, 'click', this, false);
 
         /**
          * Init callback here
@@ -445,8 +445,8 @@
        */
       _createStyles: function () {
         if (!styleElement.parentNode) {
-          styleElement.type = "text/css";
-          document.getElementsByTagName("head")[0].appendChild(styleElement);
+          styleElement.type = 'text/css';
+          document.getElementsByTagName('head')[0].appendChild(styleElement);
         }
       },
 
@@ -466,15 +466,15 @@
 
         // If there's no toggle, let's create one
         if (!opts.customToggle) {
-          var toggle = document.createElement("a");
+          var toggle = document.createElement('a');
           toggle.innerHTML = opts.label;
           setAttributes(toggle, {
-            "href": "#",
-            "class": "nav-toggle"
+            'href': '#',
+            'class': 'nav-toggle'
           });
 
           // Determine where to insert the toggle
-          if (opts.insert === "after") {
+          if (opts.insert === 'after') {
             nav.parentNode.insertBefore(toggle, nav.nextSibling);
           } else {
             nav.parentNode.insertBefore(toggle, nav);
@@ -484,14 +484,14 @@
 
         // There is a toggle already, let's use that one
         } else {
-          var toggleEl = opts.customToggle.replace("#", "");
+          var toggleEl = opts.customToggle.replace('#', '');
 
           if (document.getElementById(toggleEl)) {
             navToggle = document.getElementById(toggleEl);
           } else if (document.querySelector(toggleEl)) {
             navToggle = document.querySelector(toggleEl);
           } else {
-            throw new Error("The custom nav toggle you are trying to select doesn't exist");
+            throw new Error('The custom nav toggle you are trying to select doesn\'t exist');
           }
         }
       },
@@ -501,10 +501,10 @@
        */
       _closeOnNavClick: function () {
         if (opts.closeOnNavClick) {
-          var links = nav.getElementsByTagName("a"),
+          var links = nav.getElementsByTagName('a'),
             self = this;
           forEach(links, function (i, el) {
-            addEvent(links[i], "click", function () {
+            addEvent(links[i], 'click', function () {
               if (isMobile) {
                 self.toggle();
               }
@@ -550,7 +550,7 @@
          * Remove mouseup event completely here to avoid
          * double triggering the event.
          */
-        removeEvent(navToggle, "mouseup", this, false);
+        removeEvent(navToggle, 'mouseup', this, false);
       },
 
       /**
@@ -580,7 +580,7 @@
         if (!this.touchHasMoved) {
 
           // If the event type is touch
-          if (e.type === "touchend") {
+          if (e.type === 'touchend') {
             this.toggle();
             return;
 
@@ -615,7 +615,7 @@
       _transitions: function () {
         if (opts.animate) {
           var objStyle = nav.style,
-            transition = "max-height " + opts.transition + "ms";
+            transition = 'max-height ' + opts.transition + 'ms';
 
           objStyle.WebkitTransition =
           objStyle.MozTransition =
@@ -634,7 +634,7 @@
           savedHeight += nav.inner[i].offsetHeight;
         }
 
-        var innerStyles = "." + opts.jsClass + " ." + opts.navClass + "-" + this.index + ".opened{max-height:" + savedHeight + "px !important} ." + opts.jsClass + " ." + opts.navClass + "-" + this.index + ".opened.dropdown-active {max-height:9999px !important}";
+        var innerStyles = '.' + opts.jsClass + ' .' + opts.navClass + '-' + this.index + '.opened{max-height:' + savedHeight + 'px !important} .' + opts.jsClass + ' .' + opts.navClass + '-' + this.index + '.opened.dropdown-active {max-height:9999px !important}';
 
         if (styleElement.styleSheet) {
           styleElement.styleSheet.cssText = innerStyles;
@@ -642,7 +642,7 @@
           styleElement.innerHTML = innerStyles;
         }
 
-        innerStyles = "";
+        innerStyles = '';
       }
 
     };

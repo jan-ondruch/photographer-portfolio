@@ -326,3 +326,9 @@ fieldset {
 		color: #333;
 	}
 }
+
+@media screen and (min-height: 660px) {
+	.home-selection {
+		top: 110px;
+	}
+}

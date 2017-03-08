@@ -15,7 +15,6 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="/bower_components/modernizr/modernizr.js"></script>
 
-
     <!-- Concat for dist -->
     <script src="scripts/responsive-nav.js"></script>
 
@@ -25,21 +24,47 @@
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     
-    <div class="intro-background">
+    <header class="header">
+      <a href="./home.html" class="logo"><img src="images/pixpho_logo.png"/></a>
+      <nav class="nav-collapse">
+        <ul>
+          <li class="menu-item priroda"><a href="./priroda.html">Příroda</a></li>
+          <li class="menu-item lide"><a href="./lide.html">Lidé</a></li>
+          <li class="menu-item ostatni"><a href="./ostatni.html">Ostatní</a></li>
+          <li class="menu-item o-mne"><a href="./o-mne.html">O mně</a></li>
+          <li class="menu-item o-mne"><a href="./kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="container">  
+      <form id="contact" action="" method="post" action="https://www.formingo.co/submit/h.ondruch@seznam.cz">
+        <h3>Máte zájem o spolupráci?</h3>
+        <h4>Napište mi zprávu!</h4>
+        <fieldset>
+          <input placeholder="Jméno" type="text" tabindex="1" required autofocus>
+        </fieldset>
+        <fieldset>
+          <input placeholder="E-mail" type="email" tabindex="2" required>
+        </fieldset>
+        <fieldset>
+          <textarea placeholder="Zde napište vaši zprávu..." tabindex="5" required></textarea>
+        </fieldset>
+        <fieldset>
+          <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Odeslat</button>
+        </fieldset>
+      </form>
     </div>
 
-      <div class="intro-container">
-        <div class="intro-text">
-          <h1>ANIMALS</h1>
-          <h1>AROUND US</h1>
-          <h2>fotograf David Dukát</h2>
-        </div>
+    <div class="instagram-contact">
+      <a target="_blank" href="https://www.instagram.com/pixpho/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+    </div>
 
-        <div class="continue-to-page">
-          <button class="btn-start"><a>pokračovat</a></button>
-        </div>
-      </div>
-     
+    <footer class="footer-fix">
+      <p>&copy; Pixpho 2017 | Site Powered by <a href="http://janondruch.com">Jan Ondruch</a></p>
+    </footer>
+
+    </div>
     
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>

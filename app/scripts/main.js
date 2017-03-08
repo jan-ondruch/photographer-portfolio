@@ -2,6 +2,42 @@
 
 $(function () {
 
+	// Change intro text in carousel
+	var items = [
+		"People",
+		"Things",
+		"Nature",
+		"Animals",
+		"People",
+		"Things",
+		"Nature",
+		"Animals",
+		"People",
+		"Things",
+		"Nature",
+		"Animals",
+		"People",
+		"Things",
+		"Nature"
+	],
+
+	$text = $('.intro-text h1').first();
+
+	function loop(delay) {
+
+	  $.each(items, function (i, elm) {
+
+	   	$text.delay(delay)	// delay transition between texts
+	      $text.queue(function(){
+	          $text.html(items[i]);
+	          $text.dequeue();
+	      });
+	  });
+	}
+	
+	loop(200);
+
+
 	// Intro animation. On button click, remove the intro text and dispaly
 	// navbar and slideshow.
 	$('.btn-start').click(function () {
@@ -13,7 +49,9 @@ $(function () {
 
 
 	// only on pages where we have slideshow
-	if (window.location.pathname == "/priroda.html") {
+	if (window.location.pathname == "/priroda.html" ||
+		  window.location.pathname == "/lide.html" ||
+		  window.location.pathname == "/ostatni.html") {
 	
 		// Handle slideshow.
 		var counter = 0,

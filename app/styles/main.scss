@@ -11,6 +11,10 @@ body {
 	height: 100%;
 }
 
+html {
+	height: 100%;
+}
+
 a {
 	color: #161616;
 	text-decoration: none;
@@ -18,18 +22,47 @@ a {
 
 :focus {outline:none;}
 
-.intro-background {
-	position: absolute;
- 	width: 100%;
- 	height: 100%;
- 	background: linear-gradient(
-    rgba(0, 0, 0, 0.10), 
-    rgba(0, 0, 0, 0.10)
-  ),
-	url('../images/width_1200/w1200_00.jpg') no-repeat center center fixed; 
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -20px; 
+}
+
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer, .page-wrap:after {
+  height: 20px; 	// must be the same as .page-wrap margin
+}
+
+.site-footer {
+  p {
+  	font-size: 12px;
+  	color: #222;
+
+  	a {
+  		color: #222;
+  		&:hover {
+  			color: #666;
+  		}
+  	}
+  }
+}
+
+img.intro-bg {
+	/* Set rules to fill background */
+	min-height: 100%;
+	min-width: 1024px;
+	
+	/* Set up proportionate scaling */
 	width: 100%;
-	width: 100vw;
-	height: 100vh;
+	height: auto;
+	
+	/* Set up positioning */
+	position: fixed;
+	top: 0;
+	left: 0;
 }
 
 .intro-container {
@@ -153,11 +186,11 @@ p {
 }
 
 .home-selection {
-	position: absolute;
-	top: 80px;
+	position: relative;
 	left: 0; 
   right: 0;
 	margin: 0px auto;
+	margin-top: 100px;
 
 	h2 {
 		font-size: 36px;
@@ -178,37 +211,6 @@ p {
 			text-align: left;
 			color: #333;
 		}
-	}
-}
-
-footer {
-	position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  text-align: center;
-	
-	p {
-		font-size: 12px;
-		color: #222;
-
-		a {
-			color: #222;
-			&:hover {
-				color: #666;
-			}
-		}
-	}
-}
-
-.footer-fix {
-	position: relative;
-	margin-top: -30px; /* negative value of footer height */
-	height: 30px;
-	clear: both;
-
-	p {
-		padding-top: 12px;
 	}
 }
 

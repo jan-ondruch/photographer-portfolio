@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="/bower_components/modernizr/modernizr.js"></script>
 
     <!-- Concat for dist -->
@@ -29,45 +30,49 @@
         <a href="./home.html" class="logo"><img src="images/pixpho_logo.png"/></a>
         <nav class="nav-collapse">
           <ul>
-            <li class="menu-item"><a href="./priroda.html">Příroda</a></li>
-            <li class="menu-item"><a href="./lide.html">Lidé</a></li>
-            <li class="menu-item"><a href="./ostatni.html">Ostatní</a></li>
-            <li class="menu-item"><a target="_blank" href="https://www.instagram.com/pixpho/">Instagram</a></li>
-            <li class="menu-item"><a href="./o-mne.html">O mně</a></li>
-            <li class="menu-item"><a href="./kontakt.html">Kontakt</a></li>
+            <li class="menu-item"><a href="./nature.html">Nature</a></li>
+            <li class="menu-item"><a href="./people.html">People</a></li>
+            <li class="menu-item"><a href="./others.html">Others</a></li>
+            <li class="menu-item"><a target="_blank" href="https://www.instagram.com/janondruch/">Instagram</a></li>
+            <li class="menu-item"><a href="./about.html">About</a></li>
+            <li class="menu-item"><a href="./contact.html">Contact</a></li>
           </ul>
         </nav>
       </header>
 
-      <div class="about-wrapper">
-      
-        <div class="video-container">
-          <iframe src="https://player.vimeo.com/video/158604505" frameBorder="0"></iframe>
-        </div>
+      <div class="container">  
+        <form id="contact" action="" method="post" action="https://www.formingo.co/submit/h.ondruch@seznam.cz">
+          <h3>Do you want to work with me?</h3>
+          <h4>Drop here a message!</h4>
+          <fieldset>
+            <input placeholder="Name" type="text" tabindex="1" required autofocus>
+          </fieldset>
+          <fieldset>
+            <input placeholder="E-mail" type="email" tabindex="2" required>
+          </fieldset>
+          <fieldset>
+            <textarea placeholder="Type your message here..." tabindex="5" required></textarea>
+          </fieldset>
+          <fieldset>
+            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+          </fieldset>
+        </form>
+      </div>
 
-        <div class="about-text">
-          <h2>Kdo jsem</h2>
-          <p>
-            Dragée gummi bears cupcake apple pie croissant apple pie. Jujubes chocolate tiramisu wafer cheesecake dessert chocolate cake halvah pudding. Croissant bonbon lemon drops cookie chocolate danish cake dessert. Jelly-o lollipop sweet candy canes tart.
-            <br/><br/>
-            Fruitcake chupa chups muffin lemon drops jelly beans croissant gummies. Tootsie roll gingerbread tiramisu candy canes. Soufflé icing brownie. Cupcake carrot cake halvah candy jelly beans bear claw pastry chocolate.
-            <br/><br/>
-            Candy sweet marzipan bonbon jelly beans soufflé icing powder sweet. Muffin gummi bears sweet roll apple pie tiramisu. Jelly carrot cake sugar plum powder caramels.
-            <br/><br/>
-            Cotton candy tiramisu cake cotton candy jelly oat cake chupa chups candy canes croissant. Cake dessert marshmallow caramels chocolate bar sesame snaps cake. Icing gummies macaroon donut dessert chocolate bar jujubes liquorice icing.
-            <br/><br/>
-            Marzipan pie marzipan tiramisu bonbon sugar plum powder ice cream danish. Chocolate bar macaroon marzipan cheesecake. Bonbon wafer tootsie roll lemon drops jelly-o dragée pastry.
-          </p>
-        </div>
+      <div class="contact-info">
+        <p><strong>The Photographer</strong></p>
+        <p>e-mail: lorem@ipsum.dolor</p>
+        <p>phone: +420 123 456 789</p>
+        <p>adress: Lorem 123, Ipsum 456 789</p>
       </div>
 
     </div>
 
     <footer class="site-footer">
-      <p>
-        &copy; Pixpho 2017 | Site Powered by <a target="_blank" href="http://janondruch.com">Jan Ondruch</a>
-      </p>
+      <p>&copy; Pixpho 2017 | Site Powered by <a target="_blank" href="http://janondruch.com">Jan Ondruch</a></p>
     </footer>
+
+    </div>
     
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>

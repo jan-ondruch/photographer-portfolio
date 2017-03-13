@@ -47,8 +47,6 @@ $(function () {
 		});
 	});
 
-
-	// only on pages where we have slideshow
 	if (window.location.pathname == '/nature.html' ||
 		  window.location.pathname == '/people.html' ||
 		  window.location.pathname == '/others.html') {

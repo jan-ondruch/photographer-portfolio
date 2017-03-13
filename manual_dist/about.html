@@ -7,24 +7,11 @@
     <title>Encantada | Photographer's portfolio</title>
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->
 
-    <!-- build:css styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
-
-    <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-
-    <!-- build:js scripts/vendor/modernizr.js -->
-    <script src="/bower_components/modernizr/modernizr.js"></script>
-    <!-- endbuild -->
-
-    <!-- Concat for dist -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="scripts/responsive-nav.js"></script>
 
   </head>
@@ -49,19 +36,34 @@
         </nav>
       </header>
 
-      <div class="home-selection">
-        <a href="./nature.html"><h2>Nature</h2></a>
-        <a href="./people.html"><h2>People</h2></a>
-        <a href="./others.html"><h2>Others</h2></a>
-        <a target="_blank" href="https://www.instagram.com/pixpho/"><h2>Instagram</h2></a>
-        <a href="./about.html"><h2>About</h2></a>
-        <a href="./contact.html"><h2>Contact</h2></a>
+      <div class="about-wrapper">
+      
+        <div class="video-container">
+          <iframe src="https://player.vimeo.com/video/158604505" frameBorder="0"></iframe>
+        </div>
+
+        <div class="about-text">
+          <h2>About me</h2>
+          <p>
+            Dragée gummi bears cupcake apple pie croissant apple pie. Jujubes chocolate tiramisu wafer cheesecake dessert chocolate cake halvah pudding. Croissant bonbon lemon drops cookie chocolate danish cake dessert. Jelly-o lollipop sweet candy canes tart.
+            <br/><br/>
+            Fruitcake chupa chups muffin lemon drops jelly beans croissant gummies. Tootsie roll gingerbread tiramisu candy canes. Soufflé icing brownie. Cupcake carrot cake halvah candy jelly beans bear claw pastry chocolate.
+            <br/><br/>
+            Candy sweet marzipan bonbon jelly beans soufflé icing powder sweet. Muffin gummi bears sweet roll apple pie tiramisu. Jelly carrot cake sugar plum powder caramels.
+            <br/><br/>
+            Cotton candy tiramisu cake cotton candy jelly oat cake chupa chups candy canes croissant. Cake dessert marshmallow caramels chocolate bar sesame snaps cake. Icing gummies macaroon donut dessert chocolate bar jujubes liquorice icing.
+            <br/><br/>
+            Marzipan pie marzipan tiramisu bonbon sugar plum powder ice cream danish. Chocolate bar macaroon marzipan cheesecake. Bonbon wafer tootsie roll lemon drops jelly-o dragée pastry.
+          </p>
+        </div>
       </div>
 
     </div>
 
     <footer class="site-footer">
-      <p>&copy; Photographer 2017 | Site Powered by <a target="_blank"href="http://janondruch.com">Jan Ondruch</a></p>
+      <p>
+        &copy; Photographer 2017 | Site Powered by <a target="_blank" href="http://janondruch.com">Jan Ondruch</a>
+      </p>
     </footer>
     
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
@@ -69,25 +71,17 @@
       (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
       function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
       e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src=' ';
+      e.src='https://www.google-analytics.com/analytics.js';
       r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
       ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
 
-    <!-- build:js scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/modernizr/modernizr.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-
-    <!-- concat for dist -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
     <script src="scripts/fastclick.js"></script>
     <script src="scripts/scroll.js"></script>
     <script src="scripts/fixed-responsive-nav.js"></script>
 
-    <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
-    <!-- endbuild -->
   </body>
 </html>

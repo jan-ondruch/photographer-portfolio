@@ -40,6 +40,10 @@ a:hover {
   display: block;
 }
 
+.nav-collapse li a:hover {
+  color: #666;
+}
+
 .js .nav-collapse {
   clip: rect(0 0 0 0);
   max-height: 0;

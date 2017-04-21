@@ -7,11 +7,14 @@
     <title>Encantada | Photographer's portfolio</title>
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-
+    <!-- Place favicon.ico in the root directory -->
+    <!--<link rel="stylesheet" href="styles/animate.css">-->
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+
+    <!-- Concat for dist -->
     <script src="scripts/responsive-nav.js"></script>
 
   </head>
@@ -22,19 +25,19 @@
     
     <div class="page-wrap">
 
-      <header class="header">
-        <a href="./home.html" class="logo"><img src="images/pixpho_logo.png"/></a>
-        <nav class="nav-collapse">
-          <ul>
-            <li class="menu-item"><a href="./nature.html">Nature</a></li>
-            <li class="menu-item"><a href="./people.html">People</a></li>
-            <li class="menu-item"><a href="./others.html">Others</a></li>
-            <li class="menu-item"><a target="_blank" href="https://www.instagram.com/janondruch/">Instagram</a></li>
-            <li class="menu-item"><a href="./about.html">About</a></li>
-            <li class="menu-item"><a href="./contact.html">Contact</a></li>
-          </ul>
-        </nav>
-      </header>
+     <header class="header">
+       <a href="./home.html" class="logo"><img src="images/pixpho_logo.png"/></a>
+       <nav class="nav-collapse">
+         <ul>
+           <li class="menu-item"><a href="./nature.html">Nature</a></li>
+           <li class="menu-item"><a href="./people.html">People</a></li>
+           <li class="menu-item"><a href="./others.html">Others</a></li>
+           <li class="menu-item"><a target="_blank" href="https://www.instagram.com/janondruch/">Instagram</a></li>
+           <li class="menu-item"><a href="./about.html">About</a></li>
+           <li class="menu-item"><a href="./contact.html">Contact</a></li>
+         </ul>
+       </nav>
+     </header>
 
       <div class="slideshow-headline">
         <h2>Others</h2>
@@ -51,16 +54,10 @@
           <img src="images/width_800/w800_02.jpg" width="100%" /> 
         </figure>
         <figure>
-          <img src="images/width_800/w800_03.jpg" width="100%" /> 
-        </figure>
-        <figure>
           <img src="images/width_800/w800_04.jpg" width="100%" /> 
         </figure>
         <figure>
           <img src="images/width_800/w800_05.jpg" width="100%" /> 
-        </figure>
-        <figure>
-          <img src="images/width_800/w800_06.jpg" width="100%" /> 
         </figure>
         <span class="prev">&lsaquo;</span>
         <span class="next">&rsaquo;</span>
@@ -82,8 +79,10 @@
       ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+
+    <!-- concat for dist -->
     <script src="scripts/fastclick.js"></script>
     <script src="scripts/scroll.js"></script>
     <script src="scripts/fixed-responsive-nav.js"></script>

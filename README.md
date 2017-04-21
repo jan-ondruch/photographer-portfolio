@@ -1,12 +1,26 @@
+# encantada-photo
+
 Run:
 gulp serve
 
-For distribution, use the manual_dist folder, since gulp serve:dist
-does not work properly.
+Deployment:
+http://encantada-photo.surge.sh/
 
-Project status: 80%.
-What is missing: better responsivity, non-repetitive images, functional
-contact form.
+Goal of the project:
+Create a custom photography portfolio from scratch using pure HTML5, SASS and basic JS (jQuery).
+Try a new concept of a website, more artistic and creative.
+
+For distribution:
+use the manual_dist folder, since gulp serve:dist does not work properly.
+WARNING! index.html in dev is different than in the manual_dist folder!!!
+				 (if you change it, be aware the versions are different... (links in them))
+
+Project status: 90%.
+
+What is missing:
+better responsivity. 
+Functional contact form.
+Replace fake info with a real one (in case the project is used for real purposes).
 
 What have I learned:
 How to create multiple slideshows.

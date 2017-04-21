@@ -7,11 +7,24 @@
     <title>Encantada | Photographer's portfolio</title>
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
 
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- endbuild -->
+
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+
+    <!-- Concat for dist -->
     <script src="scripts/responsive-nav.js"></script>
 
   </head>
@@ -40,7 +53,7 @@
         <a href="./nature.html"><h2>Nature</h2></a>
         <a href="./people.html"><h2>People</h2></a>
         <a href="./others.html"><h2>Others</h2></a>
-        <a target="_blank" href="https://www.instagram.com/pixpho/"><h2>Instagram</h2></a>
+        <a target="_blank" href="https://www.instagram.com/janondruch/"><h2>Instagram</h2></a>
         <a href="./about.html"><h2>About</h2></a>
         <a href="./contact.html"><h2>Contact</h2></a>
       </div>
@@ -61,12 +74,20 @@
       ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- concat for dist -->
     <script src="scripts/fastclick.js"></script>
     <script src="scripts/scroll.js"></script>
     <script src="scripts/fixed-responsive-nav.js"></script>
 
+    <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
+    <!-- endbuild -->
   </body>
 </html>
